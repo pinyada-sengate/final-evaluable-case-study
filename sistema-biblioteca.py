@@ -41,7 +41,7 @@ class Libro:
 
    # search a book by ISBN
    def buscar(isbn):
-       for book in book_list:
+      for book in book_list:
          if book.isbn == isbn:
             disponible = ""
             if book.disponible == True:
@@ -49,7 +49,9 @@ class Libro:
             else:
                disponible = "No"
             print("- {} ({}) - ISBN: {} - Disponible: {}".format(book.titulo, book.autor, book.isbn, disponible))
-            break
+            return
+
+      print("No encuentro el libro con ISBN: {}".format(isbn))
       
 
 print("Bienvenido al Sistema de Gestión de Biblioteca")
