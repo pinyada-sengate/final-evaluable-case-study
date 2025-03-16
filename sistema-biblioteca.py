@@ -30,12 +30,19 @@ class Libro:
       
       print("No encuentro el libro con ISBN: {}".format(isbn))
       
-      
+   # return the book
    def devolver(isbn):
       for book in book_list:
          if book.isbn == isbn:
-            book.disponible = True
-      print("Libro devolvedo con éxito.")
+            if book.disponible == True:
+               print("El libro con ISBN: {} está disponible".format(isbn))
+               return
+            else:
+               book.disponible = True
+               print("Libro devolvedo con éxito.")
+               return
+      
+      print("No encuentro el libro con ISBN: {}".format(isbn))
       
    # return list of all books in the library
    def mostrar():
