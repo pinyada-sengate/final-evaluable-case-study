@@ -42,7 +42,6 @@ class Libro:
                print("Libro devolvedo con éxito.")
                return
       
-      print("No encuentro el libro con ISBN: {}".format(isbn))
       
    # return list of all books in the library
    def mostrar():
@@ -80,10 +79,12 @@ print("6. Salir")
 is_exit = False
 
 while not is_exit:
-   option = int(input("Elige una opción:"))
+   option = input("Elige una opción:")
 
-   while option < 1 or option > 6:
-      option = int(input("Esa opción no esta disponible, Por favor. Elige una opción:"))
+   while not option.isdigit() or int(option) < 1 or int(option) > 6:
+      option = input("Esa opción no esta disponible, Por favor. Elige una opción:")
+
+   option = int(option)
 
    if option == 1:
       # add new book
