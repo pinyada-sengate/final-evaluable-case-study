@@ -20,8 +20,16 @@ class Libro:
    def prestar(isbn):
       for book in book_list:
          if book.isbn == isbn:
-            book.disponible = False
-      print("Libro prestado con éxito.")
+            if book.disponible == False:
+               print("El libro con ISBN: {} no está disponible".format(isbn))
+               return
+            else:
+               book.disponible = False
+               print("Libro prestado con éxito.")
+               return
+      
+      print("No encuentro el libro con ISBN: {}".format(isbn))
+      
       
    def devolver(isbn):
       for book in book_list:
