@@ -39,12 +39,18 @@ class Libro:
                return
             else:
                book.disponible = True
-               print("Libro devolvedo con éxito.")
+               print("Libro devuelto con éxito.")
                return
+            
+      print("No encuentro el libro con ISBN: {}".format(isbn))
       
       
    # return list of all books in the library
    def mostrar():
+      if len(book_list) == 0:
+         print("No se encontro ningún libro")
+         return
+
       for book in book_list:
          disponible = ""
          if book.disponible == True:
@@ -52,6 +58,8 @@ class Libro:
          else:
             disponible = "No"
          print("- {} ({}) - ISBN: {} - Disponible: {}".format(book.titulo, book.autor, book.isbn, disponible))
+
+      
 
    # search a book by ISBN
    def buscar(isbn):
